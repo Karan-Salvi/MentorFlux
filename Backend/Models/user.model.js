@@ -29,9 +29,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "user",
     },
-    mainInterest: {
-      type: String,
-    },
+    mainInterest: [
+      {
+        type: String,
+      },
+    ],
     resetPasswordToken: String,
     resetPasswordExpiry: Date,
   },

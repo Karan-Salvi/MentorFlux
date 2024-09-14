@@ -46,6 +46,15 @@ io.on("connection", (socket) => {
     io.to(socket.id).emit("room:join", data);
   });
 
+  socket.on("message", ({ message, room }) => {
+    console.log(message);
+    console.log("Message is : ", message, "Room is : ", room);
+    //for sending the message all the users that are connected < --- > io.emit("receive-message", message);
+    //for sending the message for all the user except us  <----> socket.broadcast.emit("receive-message", message);
+    socket.join(room);
+    io.to(room).emit("receive-message", message); // For sending the message for perticular room or user
+  });
+
   socket.on("user:call", ({ to, offer }) => {
     io.to(to).emit("incomming:call", { from: socket.id, offer });
   });
