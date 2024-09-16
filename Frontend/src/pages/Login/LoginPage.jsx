@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const emailElement = useRef();
+  const passwordElement = useRef();
+
+  const navigate = useNavigate();
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    const responce = await fetch("http://localhost:8000/api/v1/login", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailElement.current.value,
+        password: passwordElement.current.value,
+      }),
+    });
+
+    const data = await responce.json();
+
+    console.log("User Login Data is here : ", data);
+
+    emailElement.current.value = "";
+    passwordElement.current.value = "";
+
+    if (data.success == true) {
+      navigate("/");
+    }
+  };
   return (
     <section className="bg-gray-100 font-sans h-[91vh] flex flex-col justify-center md:p-5">
       <div className="container mx-auto p-4 ">
@@ -8,7 +39,7 @@ const LoginPage = () => {
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center">
             <div className="flex flex-col items-center justify-center h-full relative">
               <img
-                src="./images/background.jpg"
+                src="../../public/images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />
@@ -28,7 +59,7 @@ const LoginPage = () => {
             <p className="text-gray-600 mb-6">
               Welcome back! Please login to your account.
             </p>
-            <form action="#" className="space-y-6">
+            <form className="space-y-6" onSubmit={handleLogin}>
               <div>
                 <label
                   for="username"
@@ -37,8 +68,9 @@ const LoginPage = () => {
                   Email
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   id="username"
+                  ref={emailElement}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="username@gmail.com"
                   required
@@ -54,6 +86,7 @@ const LoginPage = () => {
                 <input
                   type="password"
                   id="password"
+                  ref={passwordElement}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="********"
                   required
@@ -89,9 +122,12 @@ const LoginPage = () => {
               </button>
               <p className="text-gray-600 text-center mt-4">
                 New User?{" "}
-                <a href="#" className="text-blue-600 hover:underline">
+                <Link
+                  to={"/user/signup"}
+                  className="text-blue-600 hover:underline"
+                >
                   Signup
-                </a>
+                </Link>
               </p>
             </form>
           </div>

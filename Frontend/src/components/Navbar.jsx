@@ -1,6 +1,22 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    const responce = await fetch("http://localhost:8000/api/v1/logout", {
+      method: "Get",
+      credentials: "include",
+    });
+
+    const data = await responce.json();
+
+    console.log("User Logged out data is : ", data);
+
+    if (data.success == true) {
+      navigate("/user/login");
+    }
+  };
   return (
     <>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -10,7 +26,7 @@ const Navbar = () => {
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="./images/logo.jpg"
+              src="../../public/images/logo.jpg"
               className="h-9 rounded-full"
               alt="Flowbite Logo"
             />
@@ -30,7 +46,7 @@ const Navbar = () => {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src="./images/profile.jpeg"
+                src="../../public/images/profile.jpeg"
                 alt="user photo"
               />
             </button>
@@ -74,7 +90,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    onClick={handleLogOut}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                   >
                     Sign out

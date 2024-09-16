@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const { createServer } = require("http");
+const userRoute = require("./routes/user.routes.js");
 
 const app = express();
 
@@ -31,6 +32,8 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
   return res.send("Hiddskpkpk...");
 });
+
+app.use("/api/v1", userRoute);
 
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();

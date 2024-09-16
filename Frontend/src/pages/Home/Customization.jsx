@@ -4,19 +4,19 @@ const Customization = () => {
   return (
     <>
       <section
-        class="bg-gray-100 py-12 w-full flex justify-center"
+        className="bg-gray-100 py-12 w-full flex justify-center"
         style={{ backgroundColor: "#f0f0f0" }}
       >
         <div className="flex flex-col-reverse md:flex-row justify-between w-10/12 h-auto">
-          <div class="container mx-auto flex flex-col justify-around h-full w-full md:py-10">
-            <div class="text-center md:text-start flex flex-col justify-around h-full">
-              <h2 class="text-xl font-bold mb-4 text-yellow-600">
+          <div className="container mx-auto flex flex-col justify-around h-full w-full md:py-10">
+            <div className="text-center md:text-start flex flex-col justify-around h-full">
+              <h2 className="text-xl font-bold mb-4 text-yellow-600">
                 CUSTOMIZE WITH YOUR SCHEDULE
               </h2>
-              <h1 class="text-2xl md:text-4xl md:font-extrabold font-bold mb-4">
+              <h1 className="text-2xl md:text-4xl md:font-extrabold font-bold mb-4">
                 Talented and Qualified Tutors to Serve You for Help
               </h1>
-              <p class="text-base mb-8">
+              <p className="text-base mb-8">
                 Our scheduling system allows you to select based on free time.
                 Lorem ipsum demo text for template. Keep track of your students
                 class and tutoring schedules, and never miss your lectures. The
@@ -27,7 +27,7 @@ const Customization = () => {
               <div className="flex gap-4 justify-center md:justify-start">
                 <button
                   type="button"
-                  class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-base px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                  className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-base px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
                 >
                   Get started
                 </button>

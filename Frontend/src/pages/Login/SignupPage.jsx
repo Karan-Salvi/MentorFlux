@@ -1,14 +1,64 @@
-import React from "react";
+import React, { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
+  const firstNameElement = useRef();
+  const lastNameElement = useRef();
+  const emailElement = useRef();
+  const roleElement = useRef();
+  const passwordElement = useRef();
+
+  const navigate = useNavigate();
+
+  const handleRegisteration = async (event) => {
+    event.preventDefault();
+    let userRole;
+    if (roleElement.current.value == "Student") {
+      userRole = "user";
+    } else {
+      userRole = "mentor";
+    }
+    const user = {
+      name:
+        firstNameElement.current.value + " " + lastNameElement.current.value,
+      email: emailElement.current.value,
+      password: passwordElement.current.value,
+      role: userRole,
+    };
+
+    event.preventDefault();
+
+    const responce = await fetch("http://localhost:8000/api/v1/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+      credentials: "include",
+    });
+    const data = await responce.json();
+
+    console.log("Our user data is : ", data);
+
+    firstNameElement.current.value = "";
+    lastNameElement.current.value = "";
+    emailElement.current.value = "";
+    passwordElement.current.value = "";
+    roleElement.current.value = "";
+
+    if (data.success == true) {
+      navigate("/");
+    }
+  };
+
   return (
     <section className="bg-gray-100 font-sans h-[91vh] flex flex-col justify-center md:p-5 ">
-      <div className="container mx-auto p-4 ">
+      <div className="container mx-auto p-4 mt-64 sm:mt-32 md:mt-0">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center md:hidden">
             <div className="flex flex-col items-center justify-center h-full relative">
               <img
-                src="./images/background.jpg"
+                src="../../../public/images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />
@@ -30,18 +80,23 @@ const SignupPage = () => {
             <p className="text-gray-600 mb-6">
               Welcome to MentorFlux. Please register your new account.
             </p>
-            <form action="#" className="space-y-6">
+            <form
+              action="#"
+              className="space-y-6"
+              onSubmit={handleRegisteration}
+            >
               <div className="flex flex-col gap-5 sm:flex-row">
                 <div className="w-full">
                   <label
-                    for="username"
+                    htmlFor="username"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     First Name
                   </label>
                   <input
                     type="text"
-                    id="username"
+                    id="firstName"
+                    ref={firstNameElement}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Enter your First name here..."
                     required
@@ -49,14 +104,15 @@ const SignupPage = () => {
                 </div>
                 <div className="w-full">
                   <label
-                    for="username"
+                    htmlFor="username"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Last Name
                   </label>
                   <input
                     type="text"
-                    id="username"
+                    id="LastName"
+                    ref={lastNameElement}
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Enter your Last name here..."
                     required
@@ -66,28 +122,30 @@ const SignupPage = () => {
 
               <div>
                 <label
-                  for="username"
+                  htmlFor="username"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Email
                 </label>
                 <input
                   type="email"
-                  id="username"
+                  id="email"
+                  ref={emailElement}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="username@gmail.com"
+                  placeholder="Please Enter your Email here..."
                   required
                 />
               </div>
               <div className="w-full">
                 <label
-                  for="countries"
+                  htmlFor="countries"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Select your Role
                 </label>
                 <select
-                  id="countries"
+                  id="role"
+                  ref={roleElement}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   <option>Student</option>
@@ -96,7 +154,7 @@ const SignupPage = () => {
               </div>
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Password
@@ -104,8 +162,9 @@ const SignupPage = () => {
                 <input
                   type="password"
                   id="password"
+                  ref={passwordElement}
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="*********"
+                  placeholder="Please enter password having at least 6 unique letters.. "
                   required
                 />
               </div>
@@ -118,7 +177,7 @@ const SignupPage = () => {
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
-                    for="remember_me"
+                    htmlFor="remember_me"
                     className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Remember Me
@@ -137,16 +196,19 @@ const SignupPage = () => {
               </button>
               <p className="text-gray-600 text-center mt-4">
                 Already have an Account ?{" "}
-                <a href="#" className="text-blue-600 hover:underline">
+                <Link
+                  to={"/user/login"}
+                  className="text-blue-600 hover:underline"
+                >
                   Login
-                </a>
+                </Link>
               </p>
             </form>
           </div>
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center hidden md:block">
             <div className="flex flex-col items-center justify-center h-full relative text-center">
               <img
-                src="./images/background.jpg"
+                src="../../../public/images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />
