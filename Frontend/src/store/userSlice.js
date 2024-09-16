@@ -2,12 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
   name: "user",
   initialState: {
-    name: "Karan Salvi",
-    email: "raviprakash@gmail.com",
-    password: "ndnnffhifndfhfiuhi",
-    avatar: "../public/images/default.png",
-    role: "user",
-    mainInterest: ["Software Devolopment", "Web Devlopment", "Data Structure"],
+    name: "Unloggedin User",
+    email: "Unlogged@gmail.com",
+    avatar: "./images/default1.png",
+    role: "unloggeduser",
+    mainInterest: [],
   },
   reducers: {
     addUser: (state, action) => {

@@ -1,11 +1,15 @@
 import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { userSliceActions } from "../../store/userSlice";
 
 const LoginPage = () => {
   const emailElement = useRef();
   const passwordElement = useRef();
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -21,14 +25,16 @@ const LoginPage = () => {
       }),
     });
 
-    const data = await responce.json();
+    const user = await responce.json();
 
-    console.log("User Login Data is here : ", data);
+    console.log("User Login Data is here : ", user);
+
+    dispatch(userSliceActions.addUser(user.data));
 
     emailElement.current.value = "";
     passwordElement.current.value = "";
 
-    if (data.success == true) {
+    if (user.success == true) {
       navigate("/");
     }
   };

@@ -1,12 +1,14 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/Home/HomePage";
-import MainUserPanel from "./pages/UserPanel/MainUserPanel";
+import RoomConnected from "./pages/MeetingRoom/RoomConnected";
 
 function App() {
   return (
     <>
-      <HomePage />
+      <Navbar />
+      {/* <HomePage /> */}
+      <RoomConnected />
     </>
   );
 }
