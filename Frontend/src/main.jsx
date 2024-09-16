@@ -11,6 +11,7 @@ import { Provider } from "react-redux";
 import MainLoginPage from "./pages/Login/MainLoginPage.jsx";
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import SignupPage from "./pages/Login/SignupPage.jsx";
+import MainUserPanel from "./pages/UserPanel/MainUserPanel.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,16 +29,20 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: <MainLoginPage />,
-    children:[
+    children: [
       {
-        path:"/user/login",
-        element:<LoginPage/>
+        path: "/user/login",
+        element: <LoginPage />,
       },
       {
-        path:"/user/signup",
-        element:<SignupPage/>
-      }
-    ]
+        path: "/user/signup",
+        element: <SignupPage />,
+      },
+      {
+        path: "/user/dashboard",
+        element: <MainUserPanel />,
+      },
+    ],
   },
 ]);
 
