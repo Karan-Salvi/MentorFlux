@@ -122,16 +122,18 @@ const forgetPassword = catchAsyncErrors(async (req, res) => {
 
   await user.save({ validateBeforeSave: false });
 
-  const resetPasswordUrl = `${req.protocol}://${req.get(
+  /*const resetPasswordUrl = `${req.protocol}://${req.get(
     "host"
-  )}/api/v1/password/reset/${resetToken}`;
+  )}/api/v1/password/reset/${resetToken}`;*/
+
+  const resetPasswordUrl = `http://localhost:5173/user/api/v1/password/reset/${resetToken}`;
 
   const message = `Your password token is :-\n\n${resetPasswordUrl}\n\nIf you are not requested this email then please ingore this mail.`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: "TrendyCart password recovery",
+      subject: "MentorFlux password recovery",
       message: message,
     });
     return res.status(200).json({
@@ -166,7 +168,7 @@ const resetPassword = catchAsyncErrors(async (req, res) => {
 
   const user = await User.findOne({
     resetPasswordToken,
-    resetPasswordExpiry: { $gt: Date.now() },
+    resetPasswordExpiry: { $gte: Date.now() },
   });
 
   if (!user) {
@@ -186,6 +188,8 @@ const resetPassword = catchAsyncErrors(async (req, res) => {
   user.password = password;
   user.resetPasswordToken = undefined;
   user.resetPasswordExpiry = undefined;
+
+  console.log("To check the user ", user);
 
   await user.save();
 

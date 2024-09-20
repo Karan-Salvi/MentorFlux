@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
 const userSchema = new mongoose.Schema(
   {
@@ -9,6 +10,9 @@ const userSchema = new mongoose.Schema(
       required: [true, "Please Enter your name"],
       maxLength: [30, "Please Enter the valid name"],
       minLength: [2, "Name should have more than 5 characters"],
+    },
+    description: {
+      type: String,
     },
     email: {
       type: String,
@@ -30,6 +34,11 @@ const userSchema = new mongoose.Schema(
       default: "user",
     },
     mainInterest: [
+      {
+        type: String,
+      },
+    ],
+    doccuments: [
       {
         type: String,
       },

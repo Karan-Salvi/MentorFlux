@@ -45,7 +45,7 @@ const LoginPage = () => {
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center">
             <div className="flex flex-col items-center justify-center h-full relative">
               <img
-                src="../../public/images/background1.jpg"
+                src="./images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />
@@ -113,12 +113,12 @@ const LoginPage = () => {
                     Remember Me
                   </label>
                 </div>
-                <a
-                  href="#"
+                <Link
+                  to={"/user/forgetpassword"}
                   className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
                 >
                   Forget Password?
-                </a>
+                </Link>
               </div>
               <button
                 type="submit"

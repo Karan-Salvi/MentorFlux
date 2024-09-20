@@ -12,6 +12,9 @@ import MainLoginPage from "./pages/Login/MainLoginPage.jsx";
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import SignupPage from "./pages/Login/SignupPage.jsx";
 import MainUserPanel from "./pages/UserPanel/MainUserPanel.jsx";
+import ForgetPassword from "./pages/Password/ForgetPassword.jsx";
+import ResetPassword from "./pages/Password/ResetPassword.jsx";
+import MentorsPage from "./pages/Mentors/MentorsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +45,19 @@ const router = createBrowserRouter([
         path: "/user/dashboard",
         element: <MainUserPanel />,
       },
+      {
+        path: "/user/forgetpassword",
+        element: <ForgetPassword />,
+      },
+      {
+        path: "/user/api/v1/password/reset/:token",
+        element: <ResetPassword />,
+      },
     ],
+  },
+  {
+    path: "/mentor",
+    element: <MentorsPage />,
   },
 ]);
 
