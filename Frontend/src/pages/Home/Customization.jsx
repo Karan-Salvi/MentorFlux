@@ -36,7 +36,7 @@ const Customization = () => {
           </div>
           <div className="w-full md:w-4/5 object-contain flex justify-center items-center">
             <img
-              src="./images/interaction2.png"
+              src="/images/interaction2.png"
               className="w-full h-auto"
               alt=""
             />

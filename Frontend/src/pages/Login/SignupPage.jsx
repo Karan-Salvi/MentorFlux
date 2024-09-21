@@ -47,7 +47,7 @@ const SignupPage = () => {
     roleElement.current.value = "";
 
     if (data.success == true) {
-      navigate("/");
+      navigate("/user/login");
     }
   };
 
@@ -58,7 +58,7 @@ const SignupPage = () => {
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center md:hidden">
             <div className="flex flex-col items-center justify-center h-full relative">
               <img
-                src="./images/background1.jpg"
+                src="/images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />
@@ -208,7 +208,7 @@ const SignupPage = () => {
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center hidden md:block">
             <div className="flex flex-col items-center justify-center h-full relative text-center">
               <img
-                src="./images/background1.jpg"
+                src="/images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />

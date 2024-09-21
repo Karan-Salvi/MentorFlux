@@ -31,7 +31,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review1.jpeg"
+                        src="/images/Review1.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -55,7 +55,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review3.jpeg"
+                        src="/images/Review3.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -79,7 +79,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review2.jpeg"
+                        src="/images/Review2.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -111,7 +111,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review1.jpeg"
+                        src="/images/Review1.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -135,7 +135,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review3.jpeg"
+                        src="/images/Review3.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -159,7 +159,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review2.jpeg"
+                        src="/images/Review2.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -191,7 +191,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review1.jpeg"
+                        src="/images/Review1.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -215,7 +215,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review3.jpeg"
+                        src="/images/Review3.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -239,7 +239,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review2.jpeg"
+                        src="/images/Review2.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -271,7 +271,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review1.jpeg"
+                        src="/images/Review1.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -295,7 +295,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review3.jpeg"
+                        src="/images/Review3.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -319,7 +319,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review2.jpeg"
+                        src="/images/Review2.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -351,7 +351,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review1.jpeg"
+                        src="/images/Review1.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -375,7 +375,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review3.jpeg"
+                        src="/images/Review3.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -399,7 +399,7 @@ const ReviewSection = () => {
                     <div className="flex flex-col items-center pb-10 p-2">
                       <img
                         className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="./images/Review2.jpeg"
+                        src="/images/Review2.jpeg"
                         alt="Bonnie image"
                       />
                       <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -474,9 +474,9 @@ const ReviewSection = () => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M5 1 1 5l4 4"
                   />
                 </svg>
@@ -498,9 +498,9 @@ const ReviewSection = () => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="m1 9 4-4-4-4"
                   />
                 </svg>

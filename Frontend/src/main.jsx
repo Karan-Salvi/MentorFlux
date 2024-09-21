@@ -8,30 +8,33 @@ import LobbyScreen from "./pages/MeetingRoom/LobbyPage.jsx";
 import RoomPage from "./pages/MeetingRoom/RoomPage.jsx";
 import MentifyStore from "../src/store/index.js";
 import { Provider } from "react-redux";
-import MainLoginPage from "./pages/Login/MainLoginPage.jsx";
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import SignupPage from "./pages/Login/SignupPage.jsx";
 import MainUserPanel from "./pages/UserPanel/MainUserPanel.jsx";
 import ForgetPassword from "./pages/Password/ForgetPassword.jsx";
 import ResetPassword from "./pages/Password/ResetPassword.jsx";
 import MentorsPage from "./pages/Mentors/MentorsPage.jsx";
+import HomePage from "./pages/Home/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/home",
+        element: <HomePage />,
+      },
+    ],
   },
-  {
-    path: "/lobby",
-    element: <LobbyScreen />,
-  },
-  {
-    path: "/room/:roomId",
-    element: <RoomPage />,
-  },
+
   {
     path: "/user",
-    element: <MainLoginPage />,
+    element: <App />,
     children: [
       {
         path: "/user/login",
@@ -53,11 +56,25 @@ const router = createBrowserRouter([
         path: "/user/api/v1/password/reset/:token",
         element: <ResetPassword />,
       },
+      {
+        path: "/user/lobby",
+        element: <LobbyScreen />,
+      },
+      {
+        path: "/user/room/:roomId",
+        element: <RoomPage />,
+      },
     ],
   },
   {
     path: "/mentor",
-    element: <MentorsPage />,
+    element: <App />,
+    children: [
+      {
+        path: "/mentor",
+        element: <MentorsPage />,
+      },
+    ],
   },
 ]);
 

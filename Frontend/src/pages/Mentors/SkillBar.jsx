@@ -50,7 +50,7 @@ const SkillBar = () => {
   ];
 
   return (
-    <div className="container mx-auto w-96 m-16 border-r-2 p-3 h-auto">
+    <div className="container mx-auto w-96 m-16 border-r-2 p-3 h-5/6">
       <div className="mb-4">
         <input
           type="text"

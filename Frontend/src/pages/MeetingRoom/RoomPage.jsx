@@ -192,7 +192,7 @@ const RoomPage = () => {
 
   return (
     <>
-      <Navbar />
+     
       <div>
         {/* <h1>Room Page</h1> */}
         <h4>

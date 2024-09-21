@@ -11,6 +11,7 @@ const {
   updatePersonalDetails,
   DeleteUser,
   updateUserRole,
+  intializeUser,
 } = require("../Controllers/user.controller.js");
 
 const router = express.Router();
@@ -28,6 +29,8 @@ router.route("/logout").get(logoutUser);
 router.route("/update/:id").put(updateUserDetails);
 
 router.route("/me").get(getUserDetails);
+
+router.route("/getuser").get(intializeUser);
 
 router.route("/password/update").put(updatePassword);
 

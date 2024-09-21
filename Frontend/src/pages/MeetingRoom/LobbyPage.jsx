@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSocket } from "../../context/SocketProvider";
-import Navbar from "../../components/Navbar";
+
 
 const LobbyScreen = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ const LobbyScreen = () => {
   const handleJoinRoom = useCallback(
     (data) => {
       const { email, room } = data;
-      navigate(`/room/${room}`);
+      navigate(`/user/room/${room}`);
     },
     [navigate]
   );
@@ -35,7 +35,7 @@ const LobbyScreen = () => {
 
   return (
     <>
-      <Navbar />
+      
       <div className="w-full h-[91vh] flex justify-center items-center bg-gray-100">
         <form
           className=" w-3/12 min-w-80 mx-auto border-gray-400 border-2 rounded-lg px-10 py-16"

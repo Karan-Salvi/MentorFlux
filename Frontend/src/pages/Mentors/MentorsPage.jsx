@@ -6,7 +6,7 @@ import Mentors from "./Mentors";
 const MentorsPage = () => {
   return (
     <>
-      <Navbar />
+      
       <div className="flex justify-center items-center">
         <div className="flex w-10/12">
           <SkillBar />

@@ -6,7 +6,6 @@ import Container from "../../components/Container.jsx";
 const MainLoginPage = () => {
   return (
     <>
-      <Navbar />
       <Container>
         <Outlet />
       </Container>

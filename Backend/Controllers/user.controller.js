@@ -2,6 +2,7 @@ const catchAsyncErrors = require("../middlewares/catchAsyncErrors.js");
 const User = require("../Models/user.model.js");
 const sendEmail = require("../utils/sendmail.js");
 const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
 
 // Register or Sign up new User -- Done
 const registerUser = catchAsyncErrors(async (req, res) => {
@@ -63,11 +64,19 @@ const loginUser = catchAsyncErrors(async (req, res) => {
 
   user.password = null;
 
-  return res.status(200).cookie(process.env.TOKEN_NAME, token).json({
-    success: true,
-    message: "User is successfully logged in.",
-    data: user,
-  });
+  return res
+    .status(200)
+    .cookie(process.env.TOKEN_NAME, token, {
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+      httpOnly: true,
+      secure: true,
+      sameSite: "Strict",
+    })
+    .json({
+      success: true,
+      message: "User is successfully logged in.",
+      data: user,
+    });
 });
 
 // Logout user in our web app -- Done
@@ -76,6 +85,46 @@ const logoutUser = catchAsyncErrors(async (req, res) => {
     success: true,
     message: "User is logged out successfully",
   });
+});
+
+const intializeUser = catchAsyncErrors(async (req, res) => {
+  const tokenValue = req.cookies[process.env.TOKEN_NAME];
+
+  console.log(tokenValue);
+
+  if (!tokenValue) {
+    return res.status(404).json({
+      success: false,
+      message: "User is not logged in.",
+    });
+  }
+
+  try {
+    const payload = await jwt.verify(
+      tokenValue,
+      process.env.REFRESH_TOKEN_SECRET
+    );
+
+    if (!payload) {
+      return res.status(404).json({
+        success: false,
+        message: "Something went wrong",
+      });
+    }
+
+    const user = await User.findById(payload._id).select("-password");
+
+    return res.status(200).json({
+      success: true,
+      message: "User data get successfully",
+      data: user,
+    });
+  } catch (error) {
+    return res.status(404).json({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
 });
 
 // Update user deatails -- ADMIN
@@ -356,4 +405,5 @@ module.exports = {
   updatePersonalDetails,
   updateUserRole,
   DeleteUser,
+  intializeUser,
 };

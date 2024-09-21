@@ -28,11 +28,11 @@ const Navbar = () => {
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a
-            href="https://flowbite.com/"
+            href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="./images/logo.jpg"
+              src="/images/logo.jpg"
               className="h-9 rounded-full"
               alt="Flowbite Logo"
             />
@@ -53,13 +53,12 @@ const Navbar = () => {
               <img
                 className="w-8 h-8 rounded-full"
                 src={`${user.avatar}`}
-                
                 alt="user photo"
               />
             </button>
             {/* <!-- Dropdown menu --> */}
             <div
-              className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+              className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 cursor-pointer"
               id="user-dropdown"
             >
               {user.name !== "Unloggedin User" && (

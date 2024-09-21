@@ -4,7 +4,7 @@ const userSlice = createSlice({
   initialState: {
     name: "Unloggedin User",
     email: "Unlogged@gmail.com",
-    avatar: "./images/default1.png",
+    avatar: "/images/default1.png",
     role: "unloggeduser",
     mainInterest: [],
   },

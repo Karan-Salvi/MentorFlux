@@ -11,6 +11,18 @@ const userSchema = new mongoose.Schema(
       maxLength: [30, "Please Enter the valid name"],
       minLength: [2, "Name should have more than 5 characters"],
     },
+
+    skills: [
+      {
+        type: String,
+      },
+    ],
+    uniqueRole: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
     description: {
       type: String,
     },
@@ -27,7 +39,7 @@ const userSchema = new mongoose.Schema(
     },
     avatar: {
       type: String,
-      default: "../../public/images/profile.jpeg",
+      default: "/images/profile.jpeg",
     },
     role: {
       type: String,
@@ -38,11 +50,14 @@ const userSchema = new mongoose.Schema(
         type: String,
       },
     ],
-    doccuments: [
+    documents: [
       {
         type: String,
       },
     ],
+    meettingFees: {
+      type: Number,
+    },
     resetPasswordToken: String,
     resetPasswordExpiry: Date,
   },
@@ -68,10 +83,10 @@ userSchema.methods.generateRefreshToken = async function () {
       _id: this._id,
       email: this.email,
     },
-    process.env.REFRESH_TOKEN_SECRET,
-    {
-      expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
-    }
+    process.env.REFRESH_TOKEN_SECRET
+    // {
+    //   expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+    // }
   );
 };
 

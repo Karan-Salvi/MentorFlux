@@ -6,7 +6,7 @@ const About = () => {
       <section className="bg-white py-12 w-full flex justify-center">
         <div className="flex flex-col md:flex-row justify-between w-10/12 h-auto">
           <div className="w-full md:w-4/5 object-contain flex justify-center items-center">
-            <img src="./images/calender.png" className="w-full h-auto" alt="" />
+            <img src="/images/calender.png" className="w-full h-auto" alt="" />
           </div>
           <div className="container mx-auto flex flex-col justify-around h-full w-full md:py-10">
             <div className="text-center md:text-start flex flex-col justify-around h-full">

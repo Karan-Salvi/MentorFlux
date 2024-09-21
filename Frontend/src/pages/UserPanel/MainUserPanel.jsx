@@ -5,6 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { IoMdSettings } from "react-icons/io";
 import { FaHome } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const MainUserPanel = () => {
   const handleLogOut = async () => {
@@ -21,6 +22,8 @@ const MainUserPanel = () => {
       navigate("/user/login");
     }
   };
+
+  const user = useSelector((store) => store.user);
   return (
     <>
       <div className="container mx-auto p-4">
@@ -28,11 +31,11 @@ const MainUserPanel = () => {
           <div className="w-3/12 bg-white rounded-lg shadow p-4">
             <div className="flex items-center mb-4">
               <img
-                src="./images/profile.jpeg"
+                src={`${user.avatar}`}
                 alt="Profile Picture"
                 className="rounded-full w-10 h-10 mr-2"
               />
-              <span className="text-lg font-medium">Hello, William</span>
+              <span className="text-lg font-medium">Hello, {user.name}</span>
             </div>
             <ul className="list-none">
               <li className="py-2 border-b border-gray-200">
@@ -43,11 +46,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 4a1 1 0 011-1v-4a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4z"
                     />
                   </svg>
@@ -62,11 +65,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M10 6H5a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2v-4M10 4h.01M10 20h.01M9 10h.01m1 0l-1 1m5-1l-1-1"
                     />
                   </svg>
@@ -81,11 +84,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                     />
                   </svg>
@@ -100,11 +103,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 4a1 1 0 011-1v-4a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4z"
                     />
                   </svg>
@@ -119,11 +122,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
@@ -138,11 +141,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M9 17v-2m3 2v-2m3 2v-2m3 2v-2m-9 4v-2m3 2v-2m3 2v-2m3 2v-2m-9 4v-2m3 2v-2m3 2v-2m3 2v-2"
                     />
                   </svg>
@@ -157,11 +160,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-12 0v1z"
                     />
                   </svg>
@@ -176,11 +179,11 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M13 10V3L4 14h7v7l9-9H9v7l9-9h-7v7l9-9H3v17h10v-7"
                     />
                   </svg>
@@ -195,16 +198,16 @@ const MainUserPanel = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.573-1.065z"
                     />
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
@@ -223,11 +226,11 @@ const MainUserPanel = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
@@ -252,11 +255,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
@@ -273,11 +276,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M13 7l5 5m0 0l-5 5m5-5H6"
                       />
                     </svg>
@@ -294,11 +297,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
@@ -315,11 +318,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M13 17l5-5m0 0l-5-5m5 5H6"
                       />
                     </svg>
@@ -336,11 +339,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
@@ -357,11 +360,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M13 7l5 5m0 0l-5 5m5-5H6"
                       />
                     </svg>
@@ -378,11 +381,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
@@ -399,11 +402,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M13 7l5 5m0 0l-5 5m5-5H6"
                       />
                     </svg>
@@ -428,11 +431,11 @@ const MainUserPanel = () => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M13 7l5 5m0 0l-5 5m5-5H6"
                       />
                     </svg>
@@ -646,17 +649,16 @@ const MainUserPanel = () => {
             </div>
             <div class="mb-4">
               <img
-                src="./images/profile.jpeg"
+                src={`${user.avatar}`}
                 alt="Profile Picture"
                 class="rounded-full w-24 h-24 mx-auto"
               />
-              <h4 class="text-lg font-medium mt-2">William Fancyson</h4>
-              <span class="text-gray-500 text-sm">@thomasdox</span>
-              <p class="text-gray-500 text-sm mt-2">Join on 24 March 2017</p>
+              <h4 class="text-lg font-medium mt-2">{user.name}</h4>
+              {/* <span class="text-gray-500 text-sm">@thomasdox</span> */}
               <p class="text-gray-500 text-sm mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt.
+                Join on {user.createdAt.substring(0, 10)}
               </p>
+              <p class="text-gray-500 text-sm mt-2">{user.description }</p>
               <div class="flex justify-center mt-4">
                 <button class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded mr-2">
                   <FaHome className="text-lg font-extrabold" />

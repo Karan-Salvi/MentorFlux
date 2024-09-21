@@ -45,14 +45,14 @@ const LoginPage = () => {
           <div className="bg-gradient-to-br from-purple-300 to-pink-200 overflow-hidden rounded-lg shadow-md  min-h-40 object-center">
             <div className="flex flex-col items-center justify-center h-full relative">
               <img
-                src="./images/background1.jpg"
+                src="/images/background1.jpg"
                 alt=""
                 className="absolute order-3 w-full h-full"
               />
               <h1 className="text-6xl font-bold text-white mb-4 md:text-6xl lg:text-9xl relative ml-8">
                 Welcome Back!
               </h1>
-              {/* <img src="./images/background.jpg" alt="" className="absolute order-3"/> */}
+              {/* <img src="/images/background.jpg" alt="" className="absolute order-3"/> */}
               {/* <img
                 src="https://cdn.pixabay.com/photo/2017/02/21/15/19/arrow-2074591_960_720.png"
                 alt="Arrow"
