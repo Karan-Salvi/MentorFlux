@@ -52,7 +52,7 @@ const Navbar = () => {
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src={`${user.avatar}`}
+                src={`${user?.avatar}`}
                 alt="user photo"
               />
             </button>
@@ -61,19 +61,19 @@ const Navbar = () => {
               className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600 cursor-pointer"
               id="user-dropdown"
             >
-              {user.name !== "Unloggedin User" && (
+              {user?.name !== "Unloggedin User" && (
                 <div className="px-4 py-3">
                   <span className="block text-sm text-gray-900 dark:text-white">
-                    {user.name}
+                    {user?.name}
                   </span>
                   <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                    {user.email}
+                    {user?.email}
                   </span>
                 </div>
               )}
 
               <ul className="py-2" aria-labelledby="user-menu-button">
-                {user.name !== "Unloggedin User" && (
+                {user?.name !== "Unloggedin User" && (
                   <>
                     <li>
                       <Link
@@ -102,7 +102,7 @@ const Navbar = () => {
                   </>
                 )}
 
-                {user.name === "Unloggedin User" ? (
+                {user?.name === "Unloggedin User" ? (
                   <li>
                     <Link
                       to={"/user/login"}

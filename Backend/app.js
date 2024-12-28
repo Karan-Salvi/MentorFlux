@@ -9,7 +9,7 @@ const { checkAuthenticated } = require("./Middlewares/authentication.js");
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.FRONTEND_URI,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   return res.send("Hiddskpkpk...");
 });
 
-app.use("/api/v1" ,userRoute);
+app.use("/api/v1", userRoute);
 
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
