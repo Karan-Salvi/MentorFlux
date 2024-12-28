@@ -15,6 +15,13 @@ import ForgetPassword from "./pages/Password/ForgetPassword.jsx";
 import ResetPassword from "./pages/Password/ResetPassword.jsx";
 import MentorsPage from "./pages/Mentors/MentorsPage.jsx";
 import HomePage from "./pages/Home/HomePage.jsx";
+import Dashboard from "./pages/UserPanel/Dashboard.jsx";
+import History from "./pages/UserPanel/History.jsx";
+import Notifications from "./pages/UserPanel/Notifications.jsx";
+import Settings from "./pages/UserPanel/Settings.jsx";
+import ScheduleMeeting from "./pages/UserPanel/ScheduleMeeting.jsx";
+import Support from "./pages/UserPanel/Support.jsx";
+import FeedBackAndRatings from "./pages/UserPanel/FeedBackAndRatings.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,12 +48,42 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/user/signup",
-        element: <SignupPage />,
-      },
-      {
         path: "/user/dashboard",
         element: <MainUserPanel />,
+        children: [
+          {
+            path: "/user/dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: "/user/dashboard/history",
+            element: <History />,
+          },
+          {
+            path: "/user/dashboard/notifications",
+            element: <Notifications />,
+          },
+          {
+            path: "/user/dashboard/settings",
+            element: <Settings />,
+          },
+          {
+            path: "/user/dashboard/scheduledmeetings",
+            element: <ScheduleMeeting />,
+          },
+          {
+            path: "/user/dashboard/support",
+            element: <Support />,
+          },
+          {
+            path: "/user/dashboard/feedback",
+            element: <FeedBackAndRatings />,
+          },
+        ],
+      },
+      {
+        path: "/user/signup",
+        element: <SignupPage />,
       },
       {
         path: "/user/forgetpassword",

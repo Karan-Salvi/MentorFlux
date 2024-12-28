@@ -14,8 +14,8 @@ const Hero = () => {
               <h1 className="text-6xl md:text-8xl md:font-extrabold font-bold mb-4">
                 Find Your Perfect Mentor
               </h1>
-              <div className="flex gap-4 justify-start md:justify-start">
-                <form class="w-3/5">
+              <div className="flex gap-4 justify-center md:justify-start">
+                <form class="w-full md:w-3/5">
                   <label
                     for="default-search"
                     class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -50,7 +50,7 @@ const Hero = () => {
                     <Link
                       to={"/mentor"}
                       type="button"
-                      class="text-white absolute end-2.5 bottom-2.5 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
+                      class="text-white  absolute end-2.5 bottom-2.5 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
                     >
                       Find your Mentor
                     </Link>
@@ -85,26 +85,26 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <div className="flex flex-wrap justify-center mt-8">
-        <div className="w-full md:w-1/4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 mt-8">
+        <div className="w-full p-4">
           <div className="bg-blue-500 rounded-lg p-6 text-center">
             <h3 className="text-white font-bold text-3xl mb-2">870</h3>
             <p className="text-white font-bold">Expert tutors</p>
           </div>
         </div>
-        <div className="w-full md:w-1/4 p-4">
+        <div className="w-full p-4">
           <div className="bg-blue-500 rounded-lg p-6 text-center">
             <h3 className="text-white font-bold text-3xl mb-2">20,000+</h3>
             <p className="text-white font-bold">Hours tutored</p>
           </div>
         </div>
-        <div className="w-full md:w-1/4 p-4">
+        <div className="w-full p-4">
           <div className="bg-blue-500 rounded-lg p-6 text-center">
             <h3 className="text-white font-bold text-3xl mb-2">298</h3>
             <p className="text-white font-bold">Subjects and courses</p>
           </div>
         </div>
-        <div className="w-full md:w-1/4 p-4">
+        <div className="w-full p-4">
           <div className="bg-blue-500 rounded-lg p-6 text-center">
             <h3 className="text-white font-bold text-3xl mb-2">72,920</h3>
             <p className="text-white font-bold">Active students</p>

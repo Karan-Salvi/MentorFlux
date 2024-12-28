@@ -10,7 +10,7 @@ const ForgetPassword = () => {
 
   const handleForgetPassword = async (event) => {
     event.preventDefault();
-    console.log("jjfjfj");
+    
     const responce = await fetch(
       "http://localhost:8000/api/v1//password/forgot",
       {

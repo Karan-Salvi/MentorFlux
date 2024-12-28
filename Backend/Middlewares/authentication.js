@@ -5,6 +5,7 @@ function checkAuthenticated() {
   return async (req, res, next) => {
     const tokenValue = req.cookies[process.env.TOKEN_NAME];
 
+    // console.log("I am called",tokenValue);
     if (!tokenValue) {
       return next();
     }

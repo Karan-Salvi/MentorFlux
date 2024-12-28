@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const catchAsyncErrors = require("../Middlewares/catchAsyncErrors");
+const catchAsyncErrors = require("../Middlewares/catchAsyncErrors.js");
 
 const DB_connect = catchAsyncErrors(async () => {
   try {
@@ -14,6 +14,8 @@ const DB_connect = catchAsyncErrors(async () => {
       "MongoDB connected Successfully on server : " +
         connectionInstance.connection.host
     );
-  } catch (error) { console.log("MongoDB connection failed due to some error :", error);}
+  } catch (error) {
+    console.log("MongoDB connection failed due to some error :", error);
+  }
 });
 module.exports = DB_connect;

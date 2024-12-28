@@ -12,7 +12,12 @@ const {
   DeleteUser,
   updateUserRole,
   intializeUser,
+  updateAvatar,
 } = require("../Controllers/user.controller.js");
+
+const { checkAuthenticated } = require("../Middlewares/authentication.js");
+
+const upload = require("../Middlewares/multer.js");
 
 const router = express.Router();
 
@@ -39,5 +44,7 @@ router.route("/me/update").put(updatePersonalDetails);
 router.route("/user/delete/:id").delete(DeleteUser);
 
 router.route("/user/updateRole/:id").put(updateUserRole);
+
+router.route("/user/avatar").put(checkAuthenticated(),upload.single("avatar"), updateAvatar);
 
 module.exports = router;

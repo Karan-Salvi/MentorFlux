@@ -19,7 +19,7 @@ const RoomPage = () => {
   const user = useSelector((store) => store.user);
   const messages = useSelector((store) => store.messages);
   const dispatch = useDispatch();
-  console.log("User is here", user);
+  //console.log("User is here", user);
 
   const messageElement = useRef();
   const RoomIdElement = useRef();
@@ -38,7 +38,7 @@ const RoomPage = () => {
   const [mentorVideoscreen, setMentorVideoscreen] = useState(true);
 
   const handleUserJoined = useCallback(({ email, id }) => {
-    console.log(`Email ${email} joined room`);
+    //console.log(`Email ${email} joined room`);
     setRemoteSocketId(id);
   }, []);
 
@@ -60,7 +60,7 @@ const RoomPage = () => {
         video: true,
       });
       setMyStream(stream);
-      console.log(`Incoming Call`, from, offer);
+      //console.log(`Incoming Call`, from, offer);
       const ans = await peer.getAnswer(offer);
       socket.emit("call:accepted", { to: from, ans });
     },
@@ -77,7 +77,7 @@ const RoomPage = () => {
   const handleCallAccepted = useCallback(
     ({ from, ans }) => {
       peer.setLocalDescription(ans);
-      console.log("Call Accepted!");
+      //console.log("Call Accepted!");
       sendStreams();
     },
     [sendStreams]
@@ -110,16 +110,16 @@ const RoomPage = () => {
   useEffect(() => {
     peer.peer.addEventListener("track", async (ev) => {
       const remoteStream = ev.streams;
-      console.log("GOT TRACKS!!");
+      //console.log("GOT TRACKS!!");
       setRemoteStream(remoteStream[0]);
     });
   }, []);
 
   const handleReceivedMessage = useCallback(
     async (data) => {
-      console.log("hdhhdhhdhd");
+      //console.log("hdhhdhhdhd");
       // console.log("Message is : ", message, "Room is : ", room);
-      console.log(data);
+      //console.log(data);
       dispatch(messageActions.addMessage(data));
     },
     [socket]

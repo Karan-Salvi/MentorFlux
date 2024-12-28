@@ -3,7 +3,8 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { Server } = require("socket.io");
 const { createServer } = require("http");
-const userRoute = require("./routes/user.routes.js");
+const userRoute = require("./Routes/user.routes.js");
+const { checkAuthenticated } = require("./Middlewares/authentication.js");
 
 const app = express();
 
@@ -33,13 +34,13 @@ app.get("/", (req, res) => {
   return res.send("Hiddskpkpk...");
 });
 
-app.use("/api/v1", userRoute);
+app.use("/api/v1" ,userRoute);
 
 const emailToSocketIdMap = new Map();
 const socketidToEmailMap = new Map();
 
 io.on("connection", (socket) => {
-  console.log(`Socket Connected`, socket.id);
+  // console.log(`Socket Connected`, socket.id);
   socket.on("room:join", (data) => {
     const { email, room } = data;
     emailToSocketIdMap.set(email, socket.id);
@@ -50,8 +51,8 @@ io.on("connection", (socket) => {
   });
 
   socket.on("message", ({ message, room }) => {
-    console.log(message);
-    console.log("Message is : ", message, "Room is : ", room);
+    // console.log(message);
+    // console.log("Message is : ", message, "Room is : ", room);
     //for sending the message all the users that are connected < --- > io.emit("receive-message", message);
     //for sending the message for all the user except us  <----> socket.broadcast.emit("receive-message", message);
     socket.join(room);
@@ -67,12 +68,12 @@ io.on("connection", (socket) => {
   });
 
   socket.on("peer:nego:needed", ({ to, offer }) => {
-    console.log("peer:nego:needed", offer);
+    //console.log("peer:nego:needed", offer);
     io.to(to).emit("peer:nego:needed", { from: socket.id, offer });
   });
 
   socket.on("peer:nego:done", ({ to, ans }) => {
-    console.log("peer:nego:done", ans);
+    // console.log("peer:nego:done", ans);
     io.to(to).emit("peer:nego:final", { from: socket.id, ans });
   });
 });

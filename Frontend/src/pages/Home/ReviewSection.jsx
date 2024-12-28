@@ -1,13 +1,148 @@
 import React from "react";
 
+const Reviews = [
+  [
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+  ],
+  [
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+  ],
+  [
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+  ],
+
+  [
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+  ],
+
+  [
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+    {
+      src: "/images/Review1.jpeg",
+      alt: "Bonnie image",
+      name: "Bonnie",
+      occupation: "Student",
+      review:
+        "As a student of this online education website, I can confidently say that it has been an incredible experience. The platform is user-friendly and making it easy for me to learn at my own pace.",
+    },
+  ],
+];
+
 const ReviewSection = () => {
   return (
     <>
       <section className="bg-gray-100 py-12">
         <div className="container mx-auto">
           <div className="text-center">
-            <h2 className="text-4xl font-bold mb-4">OUR TESTIMONIALS</h2>
-            <h1 className="text-6xl font-bold mb-4">
+            <h2 className=" text-2xl md:text-4xl font-bold mb-4">OUR TESTIMONIALS</h2>
+            <h1 className="text-3xl md:text-6xl font-bold mb-4">
               What Our Students Say About Us
             </h1>
           </div>
@@ -20,405 +155,42 @@ const ReviewSection = () => {
             {/* <!-- Carousel wrapper --> */}
             <div className="relative h-64 overflow-hidden rounded-lg md:h-96">
               {/* <!-- Item 1 --> */}
-              <div
-                className="hidden duration-700 ease-in-out w-full"
-                data-carousel-item
-              >
-                <div className="flex w-full items-center justify-center h-full gap-8">
-                  {/* Review no 1 */}
+              {Reviews.map((reviewList) => (
+                <div
+                  className="hidden duration-700 ease-in-out w-full"
+                  data-carousel-item
+                >
+                  <div className="flex w-full items-center justify-center h-full gap-8">
+                    {/* Review no 1 */}
 
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review1.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
+                    {reviewList.map((review) => (
+                      <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 md:py-2">
+                        <div className="flex flex-col items-center pb-10 p-2">
+                          <img
+                            className="w-20 h-20 md:w-24 md:h-24 mb-3 rounded-full shadow-lg"
+                            src={`${review.src}`}
+                            alt={`${review.alt}`}
+                          />
+                          <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+                            {review.name}
+                          </h5>
+                          <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
+                            {review.occupation}
+                          </span>
 
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
+                          <p className="md:hidden text-sm text-gray-600 text-center">
+                            {review.review.substring(0, 35)}....
+                          </p>
 
-                  {/* Review no 2 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review3.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 3 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review2.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
+                          <p className="hidden md:block text-sm text-gray-600 text-center">
+                            {review.review.substring(0,200)}...
+                          </p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-              {/* <!-- Item 2 --> */}
-              <div
-                className="hidden duration-700 ease-in-out w-full"
-                data-carousel-item
-              >
-                <div className="flex w-full items-center justify-center h-full gap-8">
-                  {/* Review no 1 */}
-
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review1.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 2 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review3.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 3 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review2.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <!-- Item 3 --> */}
-              <div
-                className="hidden duration-700 ease-in-out w-full"
-                data-carousel-item
-              >
-                <div className="flex w-full items-center justify-center h-full gap-8">
-                  {/* Review no 1 */}
-
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review1.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 2 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review3.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 3 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review2.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <!-- Item 4 --> */}
-              <div
-                className="hidden duration-700 ease-in-out w-full"
-                data-carousel-item
-              >
-                <div className="flex w-full items-center justify-center h-full gap-8">
-                  {/* Review no 1 */}
-
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review1.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 2 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review3.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 3 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review2.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* <!-- Item 5 --> */}
-              <div
-                className="hidden duration-700 ease-in-out w-full"
-                data-carousel-item
-              >
-                <div className="flex w-full items-center justify-center h-full gap-8">
-                  {/* Review no 1 */}
-
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review1.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 2 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review3.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Review no 3 */}
-                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                    <div className="flex flex-col items-center pb-10 p-2">
-                      <img
-                        className="w-24 h-24 mb-3 rounded-full shadow-lg"
-                        src="/images/Review2.jpeg"
-                        alt="Bonnie image"
-                      />
-                      <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-                        Bonnie Green
-                      </h5>
-                      <span className="text-base font-semibold text-gray-500 dark:text-gray-400">
-                        Student
-                      </span>
-
-                      <p className="text-gray-600 text-center">
-                        As a student of this online education website, I can
-                        confidently say that it has been an incredible
-                        experience. The platform is user-friendly and making it
-                        easy for me to learn at my own pace.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
             {/* <!-- Slider indicators --> */}
             <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">

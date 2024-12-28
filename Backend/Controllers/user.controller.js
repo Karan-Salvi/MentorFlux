@@ -1,5 +1,6 @@
 const catchAsyncErrors = require("../middlewares/catchAsyncErrors.js");
 const User = require("../Models/user.model.js");
+const { uploadOnCloudinary } = require("../Utils/cloudinary.js");
 const sendEmail = require("../utils/sendmail.js");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
@@ -7,8 +8,6 @@ const jwt = require("jsonwebtoken");
 // Register or Sign up new User -- Done
 const registerUser = catchAsyncErrors(async (req, res) => {
   const { name, email, password, role } = req.body;
-
-  console.log(req.body);
 
   const user = await User.create({
     name,
@@ -87,10 +86,11 @@ const logoutUser = catchAsyncErrors(async (req, res) => {
   });
 });
 
+//  -- DONE
 const intializeUser = catchAsyncErrors(async (req, res) => {
   const tokenValue = req.cookies[process.env.TOKEN_NAME];
 
-  console.log(tokenValue);
+  // console.log("I am the one who is doing this : ", tokenValue);
 
   if (!tokenValue) {
     return res.status(404).json({
@@ -153,7 +153,7 @@ const updateUserDetails = catchAsyncErrors(async (req, res) => {
   });
 });
 
-// forget password
+// forget password -- Done
 const forgetPassword = catchAsyncErrors(async (req, res) => {
   const { email } = req.body;
   const user = await User.findOne({ email });
@@ -201,15 +201,15 @@ const forgetPassword = catchAsyncErrors(async (req, res) => {
   }
 });
 
-// reset users password
+// reset users password -- DONE
 const resetPassword = catchAsyncErrors(async (req, res) => {
   const token = req.params.token;
 
   const { password, confirmPassword } = req.body;
 
-  console.log("My password is :", password);
-  console.log("My confirmPassword is :", confirmPassword);
-  console.log("My token is :", token);
+  //console.log("My password is :", password);
+  //console.log("My confirmPassword is :", confirmPassword);
+  //console.log("My token is :", token);
   const resetPasswordToken = await crypto
     .createHash("sha256")
     .update(token)
@@ -238,7 +238,7 @@ const resetPassword = catchAsyncErrors(async (req, res) => {
   user.resetPasswordToken = undefined;
   user.resetPasswordExpiry = undefined;
 
-  console.log("To check the user ", user);
+  //console.log("To check the user ", user);
 
   await user.save();
 
@@ -375,7 +375,7 @@ const updateUserRole = catchAsyncErrors(async (req, res) => {
   });
 });
 
-// Delete user
+// Delete user -- ADMIN
 const DeleteUser = catchAsyncErrors(async (req, res) => {
   const user = await User.findByIdAndDelete(req.params.id);
 
@@ -393,6 +393,50 @@ const DeleteUser = catchAsyncErrors(async (req, res) => {
   });
 });
 
+// update avatar -- user
+const updateAvatar = catchAsyncErrors(async (req, res) => {
+  //console.log("Our file is  : ", req.file.path);
+
+  if (!req.file.path) {
+    res.status(500).json({
+      success: false,
+      message: "Avatar not uploaded on cloudinary.",
+    });
+  }
+
+  const avatarUrl = await uploadOnCloudinary(req.file.path);
+
+  if (!avatarUrl) {
+    return res.status(500).json({
+      success: false,
+      message: "Avatar not uploaded on cloudinary.",
+    });
+  }
+
+  //console.log("Avatar url is : ", avatarUrl);
+
+  //console.log("our user is  : ", req.user);
+
+  const user = await User.findByIdAndUpdate(req.user._id, {
+    $set: {
+      avatar: avatarUrl,
+    },
+  });
+
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      message: "User not found.",
+    });
+  }
+
+  return res.status(200).json({
+    success: true,
+    message: "Avatar updated successfully.",
+    data: user,
+  });
+});
+
 module.exports = {
   registerUser,
   loginUser,
@@ -406,4 +450,5 @@ module.exports = {
   updateUserRole,
   DeleteUser,
   intializeUser,
+  updateAvatar,
 };

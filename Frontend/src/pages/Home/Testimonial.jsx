@@ -6,11 +6,11 @@ import { FaMessage } from "react-icons/fa6";
 const Testimonial = () => {
   return (
     <>
-      <section className="bg-gray-100 py-12 px-28">
+      <section className="bg-gray-100 py-12 px-2 md:px-32">
         <div className="container mx-auto">
           <div className="text-center">
-            <h2 className="text-4xl font-bold mb-4">WHY CHOOSE US</h2>
-            <h1 className="text-6xl font-bold mb-4">
+            <h2 className="text-xl sm:text-4xl font-bold mb-4">WHY CHOOSE US</h2>
+            <h1 className="text-3xl sm:text-6xl font-bold mb-4">
               Benefits of online tutoring services with us
             </h1>
           </div>

@@ -38,7 +38,7 @@ const SignupPage = () => {
     });
     const data = await responce.json();
 
-    console.log("Our user data is : ", data);
+    //console.log("Our user data is : ", data);
 
     firstNameElement.current.value = "";
     lastNameElement.current.value = "";
