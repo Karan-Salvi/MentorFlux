@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { userSliceActions } from "./store/userSlice";
 
 import { Outlet } from "react-router-dom";
+import { BACKEND_URL } from "./constants";
 
 function App() {
   const user = useSelector((store) => store.user);
@@ -13,11 +14,10 @@ function App() {
 
   const loader = useSelector((store) => store.loader);
 
-
   useEffect(() => {
     async function initialiseUser() {
       if (user.role == "unloggeduser") {
-        const responce = await fetch("http://localhost:8000/api/v1/getuser", {
+        const responce = await fetch(`${BACKEND_URL}/api/v1/getuser`, {
           method: "GET",
           credentials: "include",
         });

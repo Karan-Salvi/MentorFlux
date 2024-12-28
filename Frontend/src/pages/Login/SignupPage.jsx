@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../../constants";
 
 const SignupPage = () => {
   const firstNameElement = useRef();
@@ -28,7 +29,7 @@ const SignupPage = () => {
 
     event.preventDefault();
 
-    const responce = await fetch("http://localhost:8000/api/v1/register", {
+    const responce = await fetch(`${BACKEND_URL}/api/v1/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

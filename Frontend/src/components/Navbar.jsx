@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { BACKEND_URL } from "../constants";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -10,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogOut = async () => {
-    const responce = await fetch("http://localhost:8000/api/v1/logout", {
+    const responce = await fetch(`${BACKEND_URL}/api/v1/logout`, {
       method: "Get",
       credentials: "include",
     });

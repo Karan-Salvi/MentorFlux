@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { userSliceActions } from "../../store/userSlice";
+import { BACKEND_URL } from "../../constants";
 
 const LoginPage = () => {
   const emailElement = useRef();
@@ -13,7 +14,7 @@ const LoginPage = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const responce = await fetch("http://localhost:8000/api/v1/login", {
+    const responce = await fetch(`${BACKEND_URL}/api/v1/login`, {
       method: "POST",
       credentials: "include",
       headers: {

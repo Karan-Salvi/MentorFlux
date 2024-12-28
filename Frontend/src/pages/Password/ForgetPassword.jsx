@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { IoIosKey } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
+import { BACKEND_URL } from "../../constants";
 
 const ForgetPassword = () => {
   const emailElement = useRef();
@@ -10,20 +11,17 @@ const ForgetPassword = () => {
 
   const handleForgetPassword = async (event) => {
     event.preventDefault();
-    
-    const responce = await fetch(
-      "http://localhost:8000/api/v1//password/forgot",
-      {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: emailElement.current.value,
-        }),
-      }
-    );
+
+    const responce = await fetch(`${BACKEND_URL}/api/v1//password/forgot`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailElement.current.value,
+      }),
+    });
 
     const data = await responce.json();
 

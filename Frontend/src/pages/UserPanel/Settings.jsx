@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loaderSliceActions } from "../../store/loaderSlice";
 import { userSliceActions } from "../../store/userSlice";
+import { BACKEND_URL } from "../../constants";
 
 const Settings = () => {
   const nameElement = useRef();
@@ -31,7 +32,7 @@ const Settings = () => {
     if (avatar) {
       dispatch(loaderSliceActions.showLoader());
       //console.log("The loader values is : ", loader);
-      const responce = await fetch("http://localhost:8000/api/v1/user/avatar", {
+      const responce = await fetch(`${BACKEND_URL}/api/v1/user/avatar`, {
         method: "PUT",
         credentials: "include",
         body: formData,
@@ -53,7 +54,7 @@ const Settings = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const responce = await fetch("http://localhost:8000/api/v1/login", {
+    const responce = await fetch(`${BACKEND_URL}/api/v1/login`, {
       method: "POST",
       credentials: "include",
       headers: {

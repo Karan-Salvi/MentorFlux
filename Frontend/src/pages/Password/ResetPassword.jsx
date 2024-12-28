@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa6";
+import { BACKEND_URL } from "../../constants";
 
 const ResetPassword = () => {
   const [secure, setSecure] = useState(true);
@@ -24,7 +25,7 @@ const ResetPassword = () => {
       setSecure(false);
     } else {
       const responce = await fetch(
-        `http://localhost:8000/api/v1/password/reset/${token}`,
+        `${BACKEND_URL}/api/v1/password/reset/${token}`,
         {
           method: "PUT",
           credentials: "include",

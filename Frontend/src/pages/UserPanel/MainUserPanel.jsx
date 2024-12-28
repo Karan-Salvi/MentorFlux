@@ -12,12 +12,13 @@ import { MdOutlineSupportAgent } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
 import { RiCalendarScheduleLine } from "react-icons/ri";
 import { IoIosHome } from "react-icons/io";
+import { BACKEND_URL } from "../../constants";
 
 const MainUserPanel = () => {
   const navigate = useNavigate();
 
   const handleLogOut = async () => {
-    const responce = await fetch("http://localhost:8000/api/v1/logout", {
+    const responce = await fetch(`${BACKEND_URL}/api/v1/logout`, {
       method: "Get",
       credentials: "include",
     });
