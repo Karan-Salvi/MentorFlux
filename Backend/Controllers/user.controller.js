@@ -1,7 +1,7 @@
 const catchAsyncErrors = require("../Middlewares/catchAsyncErrors.js");
 const User = require("../Models/user.model.js");
 const { uploadOnCloudinary } = require("../Utils/cloudinary.js");
-const sendEmail = require("../utils/sendmail.js");
+const sendEmail = require("../Utils/sendmail.js");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
