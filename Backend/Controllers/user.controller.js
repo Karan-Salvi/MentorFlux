@@ -66,10 +66,11 @@ const loginUser = catchAsyncErrors(async (req, res) => {
   return res
     .status(200)
     .cookie(process.env.TOKEN_NAME, token, {
-      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+      path: "/",
+      sameSite: "None",
+      secure: process.env.NODE_ENV === "production",
       httpOnly: true,
-      secure: true,
-      sameSite: "Strict",
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     })
     .json({
       success: true,
@@ -80,10 +81,19 @@ const loginUser = catchAsyncErrors(async (req, res) => {
 
 // Logout user in our web app -- Done
 const logoutUser = catchAsyncErrors(async (req, res) => {
-  return res.clearCookie(process.env.TOKEN_NAME).status(201).json({
-    success: true,
-    message: "User is logged out successfully",
-  });
+  return res
+    .clearCookie(process.env.TOKEN_NAME, {
+      path: "/",
+      sameSite: "None",
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+    })
+    .status(201)
+    .json({
+      success: true,
+      message: "User is logged out successfully",
+    });
 });
 
 //  -- DONE
