@@ -5,6 +5,11 @@ const { Server } = require("socket.io");
 const { createServer } = require("http");
 const userRoute = require("./Routes/user.routes.js");
 const { checkAuthenticated } = require("./Middlewares/authentication.js");
+const dotenv = require("dotenv");
+
+dotenv.config({
+  path: "./.env",
+});
 
 const app = express();
 
@@ -18,7 +23,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.FRONTEND_URI,
     methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
     credentials: true,
   },

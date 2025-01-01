@@ -1,4 +1,4 @@
-const catchAsyncErrors = require("../middlewares/catchAsyncErrors.js");
+const catchAsyncErrors = require("../Middlewares/catchAsyncErrors.js");
 const User = require("../Models/user.model.js");
 const { uploadOnCloudinary } = require("../Utils/cloudinary.js");
 const sendEmail = require("../utils/sendmail.js");
@@ -175,7 +175,7 @@ const forgetPassword = catchAsyncErrors(async (req, res) => {
     "host"
   )}/api/v1/password/reset/${resetToken}`;*/
 
-  const resetPasswordUrl = `http://localhost:5173/user/api/v1/password/reset/${resetToken}`;
+  const resetPasswordUrl = `${process.env.FRONTEND_URI}/user/api/v1/password/reset/${resetToken}`;
 
   const message = `Your password token is :-\n\n${resetPasswordUrl}\n\nIf you are not requested this email then please ingore this mail.`;
 

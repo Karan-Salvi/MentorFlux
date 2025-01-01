@@ -11,11 +11,12 @@ const uploadOnCloudinary = async (localFilePath) => {
 
     // console.log("File is uploaded successfully");
     fs.unlinkSync(localFilePath, () => {
-      // console.log("file removed successfully");
+      console.log("file removed successfully");
     });
     return responce.url;
   } catch (error) {
-    fs.unlinkSync(localFilePath); //remove locally saved file on the operation got failed
+    fs.unlinkSync(localFilePath);
+    console.log("file removed successfully");
     return null;
   }
 };

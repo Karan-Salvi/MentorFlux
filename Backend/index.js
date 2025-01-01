@@ -18,5 +18,6 @@ DB_connect();
 
 // Listening the port
 server.listen(process.env.PORT, () => {
-  // console.log("Server is Running on ", process.env.PORT);
+  console.log("Server is Running on ", process.env.PORT);
+  console.log("Frontend URI : ", process.env.FRONTEND_URI);
 });

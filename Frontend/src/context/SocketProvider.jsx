@@ -1,5 +1,6 @@
 import React, { createContext, useMemo, useContext } from "react";
 import { io } from "socket.io-client";
+import { BACKEND_URL } from "../constants";
 
 const SocketContext = createContext(null);
 
@@ -11,7 +12,7 @@ export const useSocket = () => {
 export const SocketProvider = (props) => {
   const socket = useMemo(
     () =>
-      io("localhost:8000", {
+      io(`${BACKEND_URL}`, {
         withCredentials: true,
       }),
     []

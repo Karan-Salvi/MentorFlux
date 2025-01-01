@@ -31,7 +31,7 @@ const Notification = ({ notification }) => {
     return istDate;
   };
 
-  const { message, timestamp, isRead } = notification;
+  let { message, timestamp, isRead } = notification;
 
   const realTimeString = timeStringtoRealTime(timestamp);
 
